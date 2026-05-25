@@ -111,7 +111,8 @@
   .wrap {
     max-width: 1180px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding-left: max(24px, env(safe-area-inset-left));
+    padding-right: max(24px, env(safe-area-inset-right));
   }
 
   header.site {
@@ -1447,15 +1448,39 @@
   @media (max-width: 720px) {
     body {
       font-size: 16px;
-      padding-bottom: 78px;  /* room for bottom nav */
+      /* room for sticky bottom nav + home-indicator safe area */
+      padding-bottom: calc(78px + env(safe-area-inset-bottom));
     }
-    .wrap { padding: 0 16px; }
+    .wrap {
+      padding-left: max(20px, env(safe-area-inset-left));
+      padding-right: max(20px, env(safe-area-inset-right));
+    }
     h1 { font-size: clamp(22px, 7vw, 28px); }
-    .site-inner { padding: 18px 0 14px; }
+    /* Top padding clears the floating theme toggle (top-left) and progress badge (top-right) */
+    .site-inner { padding: 56px 0 14px; }
     main { padding: 14px 0 20px; }
-    section.detail { padding-top: 22px; }
+    section.detail { padding-top: 30px; }
     .section-head h2 { font-size: 21px; }
     .meta .pill { font-size: 11px; padding: 3px 7px; }
+
+    /* Inner card breathing room — borders + outer wrap padding were compounding to clip text */
+    .unit-body { padding: 14px 16px 18px; }
+    .unit-tldr, .key-takeaways, aside.callout {
+      padding-left: 14px;
+      padding-right: 14px;
+    }
+
+    /* Long inline KaTeX could overflow the viewport — let lines wrap between atoms */
+    .katex { white-space: normal; }
+    .katex .base { white-space: nowrap; }
+
+    /* Wide tables / code blocks become scrollable instead of pushing the unit-card past .wrap */
+    .unit-body table, .unit-body pre {
+      display: block;
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
 
     /* Larger touch targets */
     details.unit-block > summary {
