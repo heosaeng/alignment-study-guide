@@ -4,7 +4,7 @@
 //   - Stale-while-revalidate everything else (CDN math/diagram libs cached after first hit).
 // Bump CACHE_VERSION when shipping a content change to force refresh.
 
-const CACHE_VERSION = 'iliad-v1-2026-05-26';
+const CACHE_VERSION = 'iliad-v2-2026-05-26-theme';
 const PRECACHE = [
   './',
   './index.html',
