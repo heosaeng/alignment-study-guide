@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Iliad Intensive">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2d6db1"/>
+      <stop offset="100%" stop-color="#1a4878"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="url(#g)"/>
+  <text x="256" y="356" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="320" font-weight="700"
+        fill="#ffffff" letter-spacing="-14">II</text>
+  <rect x="92" y="408" width="328" height="6" rx="3" fill="#ffffff" opacity="0.55"/>
+</svg>
